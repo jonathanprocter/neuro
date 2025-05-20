@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuro-Transmitter Questionnaire</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles_updated.css">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Chart.js for visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Neuro-Transmitter Questionnaire</h1>
+      <p>Brain Chemistry Assessment for Clinical Correlation</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <ul class="container nav-list">
+      <li class="nav-item"><a href="#" class="nav-link active" data-section="welcome">Welcome</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part1-intro">Part 1 Intro</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part1-dopamine">Part 1A</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part1-acetylcholine">Part 1B</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part1-gaba">Part 1C</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part1-serotonin">Part 1D</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part2-intro">Part 2 Intro</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part2-dopamine">Part 2A</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part2-acetylcholine">Part 2B</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part2-gaba">Part 2C</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="part2-serotonin">Part 2D</a></li>
+      <li class="nav-item"><a href="#" class="nav-link" data-section="results">Results</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Welcome Section -->
+    <section id="welcome" class="active">
+      <div class="container welcome-container">
+        <h2>Welcome to the Neuro-Transmitter Questionnaire</h2>
+        <img src="https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1203&q=80" alt="Calming natural landscape" class="welcome-image">
+        
+        <p>This assessment helps identify patterns in brain chemistry that may inform clinical decision-making. The questionnaire evaluates four key neurotransmitters: Dopamine, Acetylcholine, GABA, and Serotonin.</p>
+        
+        <p>The assessment consists of two parts:</p>
+        <ul>
+          <li><strong>Part 1:</strong> Determining Your Dominant Nature (140 questions)</li>
+          <li><strong>Part 2:</strong> Defining Your Deficiencies (97 questions)</li>
+        </ul>
+        
+        <p>Please take your time and answer each question thoughtfully. You can take breaks between sections if needed.</p>
+        
+        <div class="name-input-container">
+          <label for="name-input">Enter Client Name:</label>
+          <input type="text" id="name-input" class="name-input" placeholder="Enter name here">
+        </div>
+        
+        <div class="section-nav">
+          <div></div>
+          <button id="begin-assessment" class="btn" data-action="next" data-next="part1-intro">
+            Begin Assessment <i class="fas fa-chevron-right btn-icon"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 1 Introduction -->
+    <section id="part1-intro">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 1: Determining Your Dominant Nature</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <p>In this first part, you'll answer questions that help identify your dominant neurotransmitter nature.</p>
+          
+          <p>For each statement, select "True" if it generally applies to you, or "False" if it does not.</p>
+          
+          <p>This section covers four neurotransmitter types:</p>
+          <ul>
+            <li><strong>Dopamine:</strong> Associated with motivation, focus, and drive</li>
+            <li><strong>Acetylcholine:</strong> Associated with learning, memory, and creativity</li>
+            <li><strong>GABA:</strong> Associated with calm, stability, and stress management</li>
+            <li><strong>Serotonin:</strong> Associated with mood regulation and emotional balance</li>
+          </ul>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button id="begin-part1" class="btn" data-action="next" data-next="part1-dopamine">
+              Begin Part 1 <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 1A: Dopamine Assessment -->
+    <section id="part1-dopamine">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 1A: Dopamine Nature Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part1-dopamine-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part1-dopamine-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part1-dopamine-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part1-dopamine-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part1-acetylcholine">
+              Next <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 1B: Acetylcholine Assessment -->
+    <section id="part1-acetylcholine">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 1B: Acetylcholine Nature Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part1-acetylcholine-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part1-acetylcholine-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part1-acetylcholine-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part1-acetylcholine-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part1-gaba">
+              Next <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 1C: GABA Assessment -->
+    <section id="part1-gaba">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 1C: GABA Nature Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part1-gaba-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part1-gaba-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part1-gaba-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part1-gaba-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part1-serotonin">
+              Next <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 1D: Serotonin Assessment -->
+    <section id="part1-serotonin">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 1D: Serotonin Nature Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part1-serotonin-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part1-serotonin-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part1-serotonin-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part1-serotonin-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part1-break">
+              Next <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Break Section -->
+    <section id="part1-break">
+      <div class="container">
+        <div class="break-section">
+          <h2>Take a Moment to Breathe</h2>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" alt="Peaceful scene" class="break-image">
+          
+          <div class="break-message">
+            <p>You've completed Part 1 of the assessment. Well done!</p>
+            <p>Take a moment to breathe and center yourself before continuing to Part 2.</p>
+          </div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part2-intro">
+              Continue to Part 2 <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2 Introduction -->
+    <section id="part2-intro">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 2: Defining Your Deficiencies</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <p>In this second part, you'll answer questions that help identify potential neurotransmitter deficiencies.</p>
+          
+          <p>For each statement, select "True" if it generally applies to you, or "False" if it does not.</p>
+          
+          <p>This section covers potential deficiencies in the same four neurotransmitter types:</p>
+          <ul>
+            <li><strong>Dopamine Deficiency:</strong> May affect motivation, focus, and energy</li>
+            <li><strong>Acetylcholine Deficiency:</strong> May affect memory, learning, and cognitive processing</li>
+            <li><strong>GABA Deficiency:</strong> May affect stress management and relaxation</li>
+            <li><strong>Serotonin Deficiency:</strong> May affect mood regulation and emotional balance</li>
+          </ul>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button id="begin-part2" class="btn" data-action="next" data-next="part2-dopamine">
+              Begin Part 2 <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2A: Dopamine Deficiency Assessment -->
+    <section id="part2-dopamine">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 2A: Dopamine Deficiency Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part2-dopamine-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part2-dopamine-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part2-dopamine-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part2-dopamine-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part2-acetylcholine">
+              Next <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2B: Acetylcholine Deficiency Assessment -->
+    <section id="part2-acetylcholine">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 2B: Acetylcholine Deficiency Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part2-acetylcholine-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part2-acetylcholine-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part2-acetylcholine-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part2-acetylcholine-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part2-gaba">
+              Next <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2C: GABA Deficiency Assessment -->
+    <section id="part2-gaba">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 2C: GABA Deficiency Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part2-gaba-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part2-gaba-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part2-gaba-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part2-gaba-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="part2-serotonin">
+              Next <i class="fas fa-chevron-right btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2D: Serotonin Deficiency Assessment -->
+    <section id="part2-serotonin">
+      <div class="container">
+        <div class="section-header">
+          <h2>Part 2D: Serotonin Deficiency Assessment</h2>
+        </div>
+        
+        <div class="questionnaire-section">
+          <div class="category-header">
+            <h3>Memory and Attention</h3>
+          </div>
+          <div id="part2-serotonin-memory-questions"></div>
+          
+          <div class="category-header">
+            <h3>Physical</h3>
+          </div>
+          <div id="part2-serotonin-physical-questions"></div>
+          
+          <div class="category-header">
+            <h3>Personality</h3>
+          </div>
+          <div id="part2-serotonin-personality-questions"></div>
+          
+          <div class="category-header">
+            <h3>Character</h3>
+          </div>
+          <div id="part2-serotonin-character-questions"></div>
+          
+          <div class="section-nav">
+            <button class="btn btn-secondary" data-action="back">
+              <i class="fas fa-chevron-left btn-icon"></i> Back
+            </button>
+            <button class="btn" data-action="next" data-next="results">
+              View Results <i class="fas fa-chart-line btn-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results">
+      <div class="container">
+        <div class="results-container" id="results-container">
+          <div class="results-header">
+            <h2>Assessment Results</h2>
+            <div id="user-info">
+              <h3>Client Name</h3>
+              <p>Assessment Date</p>
+            </div>
+          </div>
+          
+          <!-- Radar Chart -->
+          <div class="chart-container">
+            <h3 class="chart-title">Neurotransmitter Profile Overview</h3>
+            <canvas id="radar-chart"></canvas>
+          </div>
+          
+          <!-- Bar Charts -->
+          <div class="chart-container">
+            <h3 class="chart-title">Dominant Nature Assessment</h3>
+            <canvas id="dominant-chart"></canvas>
+          </div>
+          
+          <div class="chart-container">
+            <h3 class="chart-title">Deficiency Assessment</h3>
+            <canvas id="deficiency-chart"></canvas>
+          </div>
+          
+          <!-- Heat Map -->
+          <div class="chart-container">
+            <h3 class="chart-title">Neurotransmitter Pattern Analysis</h3>
+            <div id="heatmap-container"></div>
+          </div>
+          
+          <!-- Clinical Interpretation -->
+          <div class="interpretation" id="interpretation">
+            <!-- Interpretation content will be generated dynamically -->
+          </div>
+          
+          <!-- Export Options -->
+          <div class="export-options">
+            <button id="export-pdf" class="btn">
+              <i class="fas fa-file-pdf btn-icon"></i> Export as PDF
+            </button>
+            <button id="export-docx" class="btn">
+              <i class="fas fa-file-word btn-icon"></i> Export as DOCX
+            </button>
+            <button id="print-results" class="btn">
+              <i class="fas fa-print btn-icon"></i> Print Results
+            </button>
+          </div>
+          
+          <!-- Reset Button -->
+          <div class="section-nav">
+            <button id="reset-assessment" class="btn btn-secondary">
+              <i class="fas fa-redo btn-icon"></i> Reset Assessment
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Neuro-Transmitter Questionnaire for Clinical Correlation</p>
+      <p>All data is processed locally in your browser with no server transmission</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module">
+    // Import modules
+    import questionDatabase from './questionDatabase.js';
+    import questionnaireController from './questionnaire_logic.js';
+    import visualizationManager from './visualizations.js';
+    import { generateClinicalInterpretation } from './clinical_interpretation_updated.js';
+    import privacyManager from './privacy_updated.js';
+    import exportManager from './export_updated.js';
+    import validationManager from './validation.js';
+    import { initializeZenUI } from './zen_ui.js';
+    import { initializeProgressiveInterface } from './progressive_interface.js';
+    
+    // Initialize application
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Initialize UI enhancements
+      initializeZenUI();
+      
+      // Initialize progressive interface
+      initializeProgressiveInterface();
+      
+      // Initialize questionnaire controller
+      questionnaireController.initialize();
+      
+      // Initialize visualizations
+      await visualizationManager.initialize();
+      
+      // Add event listener for results rendering
+      document.addEventListener('resultsRendered', (event) => {
+        const { userName, scores } = event.detail;
+        
+        // Render visualizations
+        visualizationManager.renderVisualizations(scores);
+        
+        // Generate interpretation
+        const interpretationElement = document.getElementById('interpretation');
+        if (interpretationElement) {
+          generateClinicalInterpretation(scores, interpretationElement);
+        }
+        
+        // Update export manager
+        exportManager.updateUserInfo(userName, scores);
+      });
+      
+      // Add reset button functionality
+      const resetButton = document.getElementById('reset-assessment');
+      if (resetButton) {
+        resetButton.addEventListener('click', () => {
+          if (confirm('Are you sure you want to reset the assessment? All your responses will be cleared.')) {
+            questionnaireController.resetQuestionnaire();
+          }
+        });
+      }
+      
+      // Run validation
+      const validationReport = await validationManager.validateAll();
+      console.log('Validation Report:', validationReport);
+    });
+  </script>
+</body>
+</html>
